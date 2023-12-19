@@ -1,5 +1,4 @@
 import * as express from 'express';
-import fetch from 'node-fetch';
 import * as sharp from 'sharp';
 import { AvailableFormatInfo, FormatEnum } from 'sharp';
 
@@ -18,7 +17,7 @@ const fetchImage = async (url: string) => {
 
     return {
       status: fetchReq.status,
-      buffer: await fetchReq.buffer(),
+      buffer: await fetchReq.arrayBuffer(),
       format: format
     }
   } catch (e) {
