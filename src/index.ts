@@ -62,7 +62,7 @@ app.get('/', async (req, res) => {
 
   res.setHeader('Cache-Control', 'public, max-age=31536000');
   res.setHeader('Content-Type', 'image/' + format);
-  pipeline.toFormat(toFormat, { quality: quality, compression: compression });
+  pipeline.toFormat(toFormat, { quality: quality, compression: compression, lossless: true });
   pipeline.toBuffer((_, buffer) => res.end(buffer, 'binary'));
 
 }).listen(PORT, () => console.log(`Started on PORT: ${PORT}`))
